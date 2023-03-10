@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calculator{
+            height:500px;
+            width:250px;
+            background-color:#17747d;
+            margin:auto;
+            padding:28px;
+            border-radius:20px;
+            box-shadow:solid 5px 5px #ffffff;
+        }
+        button{
+            padding:20px;
+            border-radius:20px;
+            width:80px;
+            height:50px;
+            margin-bottom:10px;
+            background-color:#DCF5F1;
+            font-weight:bold;
+        }
+        #InputValue{
+            width:100%;
+            height:40px;
+            margin-bottom:20px;
+            border-radius:20px;
+        }
+        .space{
+            width:64%;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h3 style="color: #ffffff;">Calculator Creation using Js</h3>
+        <input type="text"  placeholder="0" id="InputValue"><br/>
+        <button onClick="display(1)">1</button>
+        <button onClick="display(2)">2</button>
+        <button onClick="display(3)">3</button>
+        <button onClick="display(4)">4</button>
+        <button onClick="display(5)">5</button>
+        <button onClick="display(6)">6</button>
+        <button onClick="display(7)">7</button>
+        <button onClick="display(8)">8</button>
+        <button onClick="display(9)">9</button>
+        <button onClick="display('0')">0</button>
+        <button onClick="display('+')">+</button>
+        <button onClick="display('-')">-</button>
+        <button onClick="display('/')">/</button>
+        <button onClick="display('*')">*</button>
+        <button onClick="display('%')">%</button>
+        <button onClick="calculate()">=</button>
+        <button onClick="del()" class="space">Delete</button>
+    </div>
+    <script>
+        function display(num){
+            document.getElementById("InputValue").value+=num;
+        }
+        function calculate(){
+            try{
+                let Input=document.getElementById("InputValue").value;
+                let output=eval(Input);
+                document.getElementById("InputValue").value=output;
+            }
+            catch(err){
+                alert("Invalid Input");
+            }
+        }
+        function del(){
+                document.getElementById("InputValue").value=
+                document.getElementById("InputValue").value.slice(0,-1);
+        }
+        
+    </script>
+</body>
+</html>
